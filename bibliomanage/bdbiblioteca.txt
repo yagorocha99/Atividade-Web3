@@ -1,0 +1,27 @@
+CREATE TABLE author (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE book (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    idauthor INT NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (idauthor) REFERENCES author(id)
+);
+
+INSERT INTO author (name) VALUES
+('J.R.R. Tolkien'),
+('Aldous Huxley'),
+('Jane Austen'),
+('Mark Twain');
+
+INSERT INTO book (name, date, idauthor, status) VALUES
+('The Lord of the Rings', '1954-07-29', 1, 'Published'),
+('Brave New World', '1932-08-31', 2, 'Published'),
+('Pride and Prejudice', '1813-01-28', 3, 'Published'),
+('Adventures of Huckleberry Finn', '1884-12-10', 4, 'Published');
